@@ -10,4 +10,23 @@
 
 @implementation CoverFlowLayout
 
+- (void)prepareLayout {
+    [super prepareLayout];
+    
+    self.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+//
+//    NSMutableArray *array = [@[] mutableCopy];
+//    
+//    for (int sec = 0; sec < [self.collectionView numberOfSections]; sec++) {
+//        for (int itm = 0; itm < [self.collectionView numberOfItemsInSection:sec]; itm++) {
+//            NSIndexPath *ip = [NSIndexPath indexPathForRow:itm inSection:sec];
+//            UICollectionViewLayoutAttributes *attr = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:ip];
+//            
+//        }
+//    }
+
+//    self.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+//    self.itemSize = CGSizeMake(100.0, 2.0);
+}
+
 @end

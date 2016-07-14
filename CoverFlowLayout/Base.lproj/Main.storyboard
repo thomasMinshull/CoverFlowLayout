@@ -16,15 +16,15 @@
                         <collectionViewLayout key="collectionViewLayout" id="Az8-SV-Rcs" customClass="CoverFlowLayout"/>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="yR0-ng-9q1">
-                                <rect key="frame" x="0.0" y="0.0" width="45" height="37"/>
+                                <rect key="frame" x="0.0" y="0.0" width="84" height="74"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="45" height="37"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="84" height="74"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <size key="customSize" width="45" height="37"/>
+                                <size key="customSize" width="84" height="74"/>
                             </collectionViewCell>
                         </cells>
                         <connections>

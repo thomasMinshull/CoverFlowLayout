@@ -30,4 +30,22 @@
 //    self.itemSize = CGSizeMake(100.0, 2.0);
 }
 
+- (NSArray<UICollectionViewLayoutAttributes *> *)layoutAttributesForElementsInRect:(CGRect)rect {
+    NSArray *supersAttributes = [super layoutAttributesForElementsInRect:rect];
+    NSArray *attributes = [[NSArray alloc] initWithArray:supersAttributes copyItems:YES];
+    
+    CGRect layoutRegion;
+    layoutRegion.origin = self.collectionView.contentOffset;
+    layoutRegion.size = self.collectionView.bounds.size;
+    
+    int i = 0;
+    for (UICollectionViewLayoutAttributes *attr in attributes) {
+        i++;
+        if (i == 2) {
+            attr.transform3D = CATransform3DScale(attr.transform3D, 1.25, 1.25, 1.0);
+        }
+    }
+    
+    return attributes;
+}
 @end

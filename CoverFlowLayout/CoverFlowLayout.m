@@ -8,13 +8,17 @@
 
 #import "CoverFlowLayout.h"
 
+#define ZOOM_FACTOR 1.5
+
 @implementation CoverFlowLayout
 
 - (void)prepareLayout {
     [super prepareLayout];
     
     self.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-    self.itemSize = CGSizeMake([UIScreen mainScreen].bounds.size.width/3, [UIScreen mainScreen].bounds.size.height/1.5);
+    self.itemSize = CGSizeMake(self.collectionView.bounds.size.height/4, self.collectionView.bounds.size.height/4);
+    self.collectionView.contentInset = UIEdgeInsetsMake(self.collectionView.bounds.size.height/4, 0.0,
+                                                        self.collectionView.bounds.size.height/4, 0.0);
 //
 //    NSMutableArray *array = [@[] mutableCopy];
 //    
@@ -30,6 +34,9 @@
 //    self.itemSize = CGSizeMake(100.0, 2.0);
 }
 
+
+
+
 - (NSArray<UICollectionViewLayoutAttributes *> *)layoutAttributesForElementsInRect:(CGRect)rect {
     NSArray *supersAttributes = [super layoutAttributesForElementsInRect:rect];
     NSArray *attributes = [[NSArray alloc] initWithArray:supersAttributes copyItems:YES];
@@ -38,14 +45,67 @@
     layoutRegion.origin = self.collectionView.contentOffset;
     layoutRegion.size = self.collectionView.bounds.size;
     
-    int i = 0;
+    float screenCenter = CGRectGetMidX(layoutRegion);
+    
     for (UICollectionViewLayoutAttributes *attr in attributes) {
-        i++;
-        if (i == 2) {
-            attr.transform3D = CATransform3DScale(attr.transform3D, 1.25, 1.25, 1.0);
+        
+        float distFromCenterRaw = ABS(screenCenter - attr.center.x);
+        float normDistFromCenter = distFromCenterRaw / layoutRegion.size.width;
+
+        if (normDistFromCenter < .25) {
+            
+            attr.transform3D = CATransform3DScale(attr.transform3D, ZOOM_FACTOR * (1 - normDistFromCenter), ZOOM_FACTOR * (1 - normDistFromCenter), 1.0);
         }
+    
     }
     
     return attributes;
 }
+
+//
+//// shareen's conde
+//-(NSArray *)layoutAttributesForElementsInRect:(CGRect)rect {
+//    //    NSLog(@"Returning attributes for elements in {(%f, %f),(%f, %f)}",
+//    //          rect.origin.x, rect.origin.y, rect.size.width, rect.size.height);
+//    NSArray* supersAttributes = [super layoutAttributesForElementsInRect:rect];
+//    NSArray *attributes = [[NSArray alloc] initWithArray:supersAttributes copyItems:YES];
+//    
+//    CGRect visibleRect;
+//    visibleRect.origin = self.collectionView.contentOffset;
+//    visibleRect.size = self.collectionView.bounds.size;
+//    
+//    float collectionViewHalfFrame = self.collectionView.frame.size.width/2.0;
+//    
+//    for (UICollectionViewLayoutAttributes* layoutAttributes in attributes) {
+//        if (CGRectIntersectsRect(layoutAttributes.frame, rect)) {
+//            CGFloat distance = CGRectGetMidX(visibleRect) - layoutAttributes.center.x;
+//            CGFloat normalizedDistance= distance / collectionViewHalfFrame;
+//            
+//            if (ABS(distance) < collectionViewHalfFrame) {
+//                CGFloat zoom = 1 + ZOOM_FACTOR*(1- ABS(normalizedDistance));
+//                CATransform3D rotationTransform = CATransform3DIdentity;
+//                rotationTransform = CATransform3DMakeRotation(normalizedDistance * M_PI_2 *0.8, 0.0f, 1.0f, 0.0f);
+//                CATransform3D zoomTransform = CATransform3DMakeScale(zoom, zoom, 1.0);
+//                layoutAttributes.transform3D = CATransform3DConcat(zoomTransform, rotationTransform);
+//                layoutAttributes.zIndex = ABS(normalizedDistance) * 10.0f;
+//                CGFloat alpha = (1  - ABS(normalizedDistance)) + 0.1;
+//                if (alpha > 1.0f) alpha = 1.0f;
+//                layoutAttributes.alpha = alpha;
+//            }
+//            else
+//            {
+//                layoutAttributes.alpha = 0.0f;
+//            }
+//        }
+//    }
+//    
+//    return attributes;
+//}
+
+
+
+- (BOOL)shouldInvalidateLayoutForBoundsChange:(CGRect)newBounds {
+    return YES;
+}
+
 @end

@@ -9,10 +9,10 @@
 /* Begin PBXBuildFile section */
 		55F9873B1D380EEA0029C9A3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 55F9873A1D380EEA0029C9A3 /* main.m */; };
 		55F9873E1D380EEA0029C9A3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 55F9873D1D380EEA0029C9A3 /* AppDelegate.m */; };
-		55F987411D380EEA0029C9A3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55F987401D380EEA0029C9A3 /* ViewController.m */; };
 		55F987441D380EEA0029C9A3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55F987421D380EEA0029C9A3 /* Main.storyboard */; };
 		55F987461D380EEA0029C9A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55F987451D380EEA0029C9A3 /* Assets.xcassets */; };
 		55F987491D380EEA0029C9A3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55F987471D380EEA0029C9A3 /* LaunchScreen.storyboard */; };
+		55F987521D3810440029C9A3 /* RootCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 55F987511D3810440029C9A3 /* RootCollectionViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,12 +20,12 @@
 		55F9873A1D380EEA0029C9A3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		55F9873C1D380EEA0029C9A3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		55F9873D1D380EEA0029C9A3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		55F9873F1D380EEA0029C9A3 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		55F987401D380EEA0029C9A3 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		55F987431D380EEA0029C9A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		55F987451D380EEA0029C9A3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		55F987481D380EEA0029C9A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		55F9874A1D380EEA0029C9A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		55F987501D3810440029C9A3 /* RootCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootCollectionViewController.h; sourceTree = "<group>"; };
+		55F987511D3810440029C9A3 /* RootCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootCollectionViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,8 +60,8 @@
 			children = (
 				55F9873C1D380EEA0029C9A3 /* AppDelegate.h */,
 				55F9873D1D380EEA0029C9A3 /* AppDelegate.m */,
-				55F9873F1D380EEA0029C9A3 /* ViewController.h */,
-				55F987401D380EEA0029C9A3 /* ViewController.m */,
+				55F987501D3810440029C9A3 /* RootCollectionViewController.h */,
+				55F987511D3810440029C9A3 /* RootCollectionViewController.m */,
 				55F987421D380EEA0029C9A3 /* Main.storyboard */,
 				55F987451D380EEA0029C9A3 /* Assets.xcassets */,
 				55F987471D380EEA0029C9A3 /* LaunchScreen.storyboard */,
@@ -149,8 +149,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				55F987411D380EEA0029C9A3 /* ViewController.m in Sources */,
 				55F9873E1D380EEA0029C9A3 /* AppDelegate.m in Sources */,
+				55F987521D3810440029C9A3 /* RootCollectionViewController.m in Sources */,
 				55F9873B1D380EEA0029C9A3 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

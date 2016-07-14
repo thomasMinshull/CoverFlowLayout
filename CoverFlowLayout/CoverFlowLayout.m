@@ -14,6 +14,7 @@
     [super prepareLayout];
     
     self.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+    self.itemSize = CGSizeMake([UIScreen mainScreen].bounds.size.width/3, [UIScreen mainScreen].bounds.size.height/1.5);
 //
 //    NSMutableArray *array = [@[] mutableCopy];
 //    

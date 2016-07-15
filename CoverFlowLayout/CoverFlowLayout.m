@@ -8,7 +8,7 @@
 
 #import "CoverFlowLayout.h"
 
-#define ZOOM_FACTOR 1.5
+#define ZOOM_FACTOR 2
 
 @implementation CoverFlowLayout
 
@@ -50,12 +50,15 @@
     for (UICollectionViewLayoutAttributes *attr in attributes) {
         
         float distFromCenterRaw = ABS(screenCenter - attr.center.x);
-        float normDistFromCenter = distFromCenterRaw / layoutRegion.size.width;
+        float normDistFromCenter = distFromCenterRaw / (layoutRegion.size.width / 2); // 0 is center, 1 is edge or screen
 
-        if (normDistFromCenter < .25) {
-            
-            attr.transform3D = CATransform3DScale(attr.transform3D, ZOOM_FACTOR * (1 - normDistFromCenter), ZOOM_FACTOR * (1 - normDistFromCenter), 1.0);
-        }
+        
+        attr.transform3D = CATransform3DScale(attr.transform3D, ZOOM_FACTOR * (1 - normDistFromCenter), ZOOM_FACTOR * (1 - normDistFromCenter), 50 * (1 -normDistFromCenter));
+        
+        
+        // (M_PI_2) is pi/2 AKA 90 degrees At center no rotation, at edge fully rotatied
+        attr.transform3D = CATransform3DRotate(attr.transform3D, (M_PI_2) * normDistFromCenter, 0.0, 1.0, 0.0);
+        
     
     }
     

@@ -3,6 +3,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Root Collection View Controller-->
@@ -16,15 +18,29 @@
                         <collectionViewLayout key="collectionViewLayout" id="Az8-SV-Rcs" customClass="CoverFlowLayout"/>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="yR0-ng-9q1">
-                                <rect key="frame" x="0.0" y="0.0" width="84" height="74"/>
+                                <rect key="frame" x="0.0" y="0.0" width="210" height="176"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="84" height="74"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="210" height="176"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="LaN-lV-pHc">
+                                            <rect key="frame" x="24" y="24" width="162" height="128"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="LaN-lV-pHc" secondAttribute="height" multiplier="81:64" id="Xfu-Y4-kAC"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <size key="customSize" width="84" height="74"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailingMargin" secondItem="LaN-lV-pHc" secondAttribute="trailing" constant="16" id="3cd-vG-oec"/>
+                                    <constraint firstAttribute="bottomMargin" secondItem="LaN-lV-pHc" secondAttribute="bottom" constant="16" id="NnA-2w-Icj"/>
+                                    <constraint firstItem="LaN-lV-pHc" firstAttribute="leading" secondItem="yR0-ng-9q1" secondAttribute="leadingMargin" constant="16" id="RDX-TA-6if"/>
+                                    <constraint firstItem="LaN-lV-pHc" firstAttribute="top" secondItem="yR0-ng-9q1" secondAttribute="topMargin" constant="16" id="xaE-Zb-Q0t"/>
+                                </constraints>
+                                <size key="customSize" width="210" height="176"/>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -38,4 +54,7 @@
             <point key="canvasLocation" x="500" y="-140"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Image" width="129" height="97"/>
+    </resources>
 </document>
